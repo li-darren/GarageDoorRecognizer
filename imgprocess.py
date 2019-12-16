@@ -15,8 +15,6 @@ for imgName in test_imgs:
     cv2.imwrite(script_path + "/Output Photos/Original_Photo.jpg", img)
     height, width, channels = img.shape
 
-    starting_pixel = (1472,912)
-
     # light_red = np.array([91, 8, 157], dtype="uint8")
     # dark_red = np.array([111, 28, 237], dtype="uint8")
 
@@ -40,10 +38,38 @@ for imgName in test_imgs:
 
     mask = mask1 | mask2
 
-    #cv2.circle(colorchanged_img, starting_pixel, 10, (255,0,0), 5)
+    cropped_img_left = mask[753:1134, 975:2136]
+    cropped_img_right = mask[967:1186, 2643:3729]
+
+    
+    # cropped_img_right = mask[y:y+h, x:x+w]
+
+    left_pixel_threshold = 100000
+    right_pixel_threshold = 150000
+
+    if (cv2.countNonZero(cropped_img_left) < left_pixel_threshold):
+        left_open = True
+    else:
+        left_open = False
+
+    print(cv2.countNonZero(cropped_img_right))
+
+    if (cv2.countNonZero(cropped_img_right) < right_pixel_threshold):
+        right_open = True
+    else:
+        right_open = False
+
+
+    print ("left_open: " + str(left_open) + " right open: " + str(right_open))
+
+    cv2.rectangle(hsv_img, (975,753), (2136,1134), (255, 0, 0) , 5)
+    cv2.rectangle(hsv_img, (2643,967), (3729,1186), (255, 0, 0) , 5)
+
 
     cv2.namedWindow("imagewindow", cv2.WINDOW_NORMAL)
     cv2.imshow('imagewindow', hsv_img)
+    cv2.namedWindow("croppedimg", cv2.WINDOW_NORMAL)
+    cv2.imshow('croppedimg', cropped_img_right)
     cv2.namedWindow("maskedwindow", cv2.WINDOW_NORMAL)
     cv2.imshow('maskedwindow', mask)
     key = cv2.waitKey(0)
