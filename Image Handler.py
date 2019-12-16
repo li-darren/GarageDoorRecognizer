@@ -76,3 +76,14 @@ for imgName in test_imgs:
 
     if key == 49:
         exit()
+
+
+
+# if right_open and left_open:
+#     return "both"
+# elif right_open:
+#     return "right"
+# elif left_open:
+#     return "left"
+# else:
+#     return None
