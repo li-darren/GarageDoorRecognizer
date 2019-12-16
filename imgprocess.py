@@ -1,10 +1,10 @@
 import cv2
-import numpy
+import numpy as np
 import os
 
 script_path = os.path.dirname(os.path.abspath(__file__)).replace("\\","/")
 print(script_path)
-test_imgs = ['/OneplusPhotos/2.jpg', '/OneplusPhotos/5.jpg', '/OneplusPhotos/6.jpg', '/OneplusPhotos/10.jpg', '/OneplusPhotos/11.jpg']
+test_imgs = ['/OneplusPhotos/2.jpg', '/OneplusPhotos/5.jpg', '/OneplusPhotos/6.jpg', '/OneplusPhotos/10.jpg', '/OneplusPhotos/11.jpg', '/OneplusPhotos/12.jpg', '/OneplusPhotos/13.jpg']
 #test_imgs = ['/OneplusPhotos/5.jpg']
 
 
@@ -12,25 +12,41 @@ test_imgs = ['/OneplusPhotos/2.jpg', '/OneplusPhotos/5.jpg', '/OneplusPhotos/6.j
 
 for imgName in test_imgs:
     img = cv2.imread(script_path + imgName)
+    cv2.imwrite(script_path + "/Output Photos/Original_Photo.jpg", img)
     height, width, channels = img.shape
 
-    mask = numpy.zeros((height+2, width+2), numpy.uint8)
-    
     starting_pixel = (1472,912)
 
+    # light_red = np.array([91, 8, 157], dtype="uint8")
+    # dark_red = np.array([111, 28, 237], dtype="uint8")
 
-    diff = (2,2,2)
+    #this detects light
+    # light_red2 = np.array([0, 0, 130], dtype="uint8")
+    # dark_red2 = np.array([180, 150, 255], dtype="uint8")
 
-    alpha = 0.015 #contrast control
-    beta = 0.06 #brightness control
+    # this detects brown
 
-    #colorchanged = cv2.cvtColor(new_img, cv2.COLOR_BGR2GRAY)
+    light_red1 = np.array([0, 25, 20], dtype="uint8")
+    dark_red1 = np.array([20, 255, 255], dtype="uint8")
+    light_red2 = np.array([170, 25, 20], dtype="uint8")
+    dark_red2 = np.array([180, 255, 255], dtype="uint8")
+    # light_red2 = light_red1
+    # dark_red2 = dark_red1
 
-    #floodfilled_image = cv2.floodFill(new_img, mask, starting_pixel, (0, 255, 0), diff, diff)
-    cv2.circle(img, starting_pixel, 10, (255,0,0), 5)
 
+    hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    mask1 = cv2.inRange(hsv_img, light_red1, dark_red1)
+    mask2 = cv2.inRange(hsv_img, light_red2, dark_red2)
 
+    mask = mask1 | mask2
 
-    # cv2.namedWindow("imagewindow", cv2.WINDOW_NORMAL)
-    # cv2.imshow('imagewindow', new_img)
-    cv2.waitKey(0)
+    #cv2.circle(colorchanged_img, starting_pixel, 10, (255,0,0), 5)
+
+    cv2.namedWindow("imagewindow", cv2.WINDOW_NORMAL)
+    cv2.imshow('imagewindow', hsv_img)
+    cv2.namedWindow("maskedwindow", cv2.WINDOW_NORMAL)
+    cv2.imshow('maskedwindow', mask)
+    key = cv2.waitKey(0)
+
+    if key == 49:
+        exit()
