@@ -32,3 +32,4 @@ def send_email(email_list, gmail_pass, door_open, jpgpath = "F:/Windows 10 User 
     with smtplib.SMTP_SSL("smtp.gmail.com", port, context=ssl_context) as server:
         server.login("garagedoorrecognizer@gmail.com", gmail_pass)
         server.send_message(msg)
+        print("Sent Email Alert!")

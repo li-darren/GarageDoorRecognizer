@@ -9,4 +9,4 @@ def send_sms (door_open, account_sid, auth_token):
               body="Oh no! %s doors is/are open." % door_open,
               to='whatsapp:+16477170038',
        )
-       print(message.sid)
+       print("Sent SMS Alert!")
