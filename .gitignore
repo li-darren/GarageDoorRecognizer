@@ -5,3 +5,4 @@
 !OutputPhotos/
 .env
 /__pycache__/*
+!TestImages/
