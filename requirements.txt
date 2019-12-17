@@ -2,3 +2,4 @@ numpy
 opencv-python
 twilio
 python-dotenv
+opencv-contrib-python==3.4.3.18

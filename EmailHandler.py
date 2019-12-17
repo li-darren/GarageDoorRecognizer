@@ -3,8 +3,10 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 
+def send_email(email_list, gmail_pass, door_open, root_folder):
+    
+    jpg_path = root_folder + "/Output Photos/Original_Photo.jpg"
 
-def send_email(email_list, gmail_pass, door_open, jpgpath = "F:/Windows 10 User Files/Windows 10 User Files - Darren/OneDrive - University of Waterloo/_Side Projects/GarageDoorRecognizer/test.jpg"):
     port = 465  # For SSL
     ssl_context = ssl.create_default_context()
 
@@ -19,7 +21,7 @@ def send_email(email_list, gmail_pass, door_open, jpgpath = "F:/Windows 10 User 
     msg.attach(msgText)
 
     try:
-        with open(jpgpath, 'rb') as fp:
+        with open(jpg_path, 'rb') as fp:
             img = MIMEImage(fp.read())
             img.add_header('Content-ID', '<{}>'.format("OriginalPhoto"))
             msg.attach(img)

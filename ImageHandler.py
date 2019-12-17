@@ -1,10 +1,16 @@
 import cv2 as cv2
 import numpy as np
-import os
+from picamera import PiCamera
+from time import sleep
+def check_garage_doors_open (root_folder):
 
-script_path = os.path.dirname(os.path.abspath(__file__)).replace("\\","/")
+    
+    #cv2.namedWindow("originalimg", cv2.WINDOW_NORMAL)
 
-def check_garage_doors_open (imgPath):
+    camera = PiCamera()
+    camera.start_preview()
+    sleep(100)
+    #camera.capture(root_folder + "/Output Photos/Original_Photo.jpg")
     
     left_pixel_threshold = 100000
     right_pixel_threshold = 150000
@@ -14,8 +20,6 @@ def check_garage_doors_open (imgPath):
     light_red2 = np.array([170, 25, 20], dtype="uint8")
     dark_red2 = np.array([180, 255, 255], dtype="uint8")
 
-    img = cv2.imread(script_path + imgPath)
-    cv2.imwrite(script_path + "/Output Photos/Original_Photo.jpg", img)
 
     hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     mask1 = cv2.inRange(hsv_img, light_red1, dark_red1)
