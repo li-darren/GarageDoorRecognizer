@@ -10,9 +10,10 @@ def check_garage_doors_open (root_folder):
 
     camera = PiCamera()
     camera.start_preview()
-    sleep(100)
+    sleep(5)
     camera.capture(root_folder + "/Output Photos/Original_Photo.jpg")
-    
+    camera.stop_preview()
+    camera.close()    
     img = cv2.imread(root_folder + "/Output Photos/Original_Photo.jpg")
 
     left_pixel_threshold = 100000
