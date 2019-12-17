@@ -1,5 +1,7 @@
+!.gitignore
 *.jpg
 *.jpeg
 *.png
-!Output Photos/
+!OutputPhotos/
 .env
+/__pycache__/*

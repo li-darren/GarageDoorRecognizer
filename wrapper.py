@@ -12,17 +12,13 @@ twilio_auth_token = os.getenv("auth_token")
 email_list = os.getenv("email_list")
 gmail_pass = os.getenv("gmail_pass")
 
-test_imgs = ['/OneplusPhotos/10.jpg','/OneplusPhotos/2.jpg', '/OneplusPhotos/5.jpg', '/OneplusPhotos/6.jpg']
+doors_open = ImageHandler.check_garage_doors_open(root_folder=root_folder)
+#time.sleep(300)
 
-while True:
-    
-    doors_open = ImageHandler.check_garage_doors_open(root_folder=root_folder)
-    time.sleep(300)
-    
-    if doors_open != None:
+if doors_open != None:
 
-        doors_open2 = ImageHandler.check_garage_doors_open(root_folder=root_folder)
+    doors_open2 = ImageHandler.check_garage_doors_open(root_folder=root_folder)
 
-        if doors_open == doors_open2:
-            EmailHandler.send_email(email_list=email_list, gmail_pass=gmail_pass, door_open=doors_open2, root_folder=root_folder)
-            #SMSHandler.send_sms(door_open=doors_open2, account_sid=twilio_account_sid, auth_token=twilio_auth_token)
+    if doors_open == doors_open2:
+        EmailHandler.send_email(email_list=email_list, gmail_pass=gmail_pass, door_open=doors_open2, root_folder=root_folder)
+        #SMSHandler.send_sms(door_open=doors_open2, account_sid=twilio_account_sid, auth_token=twilio_auth_token)

@@ -5,16 +5,15 @@ from time import sleep
 
 def check_garage_doors_open (root_folder):
 
-    
     #cv2.namedWindow("originalimg", cv2.WINDOW_NORMAL)
 
     # camera = PiCamera()
     # camera.start_preview()
     # sleep(5)
-    # camera.capture(root_folder + "/Output Photos/Original_Photo.jpg")
+    # camera.capture(root_folder + "/OutputPhotos/Original_Photo.jpg")
     # camera.stop_preview()
     # camera.close()    
-    # img = cv2.imread(root_folder + "/Output Photos/Original_Photo.jpg")
+    # img = cv2.imread(root_folder + "/OutputPhotos/Original_Photo.jpg")
 
     img = cv2.imread(root_folder + "/Original_Photo_Open.jpg")
 
@@ -65,4 +64,11 @@ def check_garage_doors_open (root_folder):
     cv2.imshow('maskedwindow', mask)
     cv2.waitKey(0)
 
-check_garage_doors_open("F:/Windows 10 User Files/Windows 10 User Files - Darren/OneDrive - University of Waterloo/_Side Projects/GarageDoorRecognizer")
+    if right_open and left_open:
+            return "both"
+    elif right_open:
+        return "right"
+    elif left_open:
+        return "left"
+    else:
+        return None
