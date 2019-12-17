@@ -27,10 +27,15 @@ def check_garage_doors_open (root_folder):
 
 
     hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+
+    cv2.imwrite(root_folder + "/OutputPhotos/HSV_Photo.jpg", hsv_img)
+
     mask1 = cv2.inRange(hsv_img, light_red1, dark_red1)
     mask2 = cv2.inRange(hsv_img, light_red2, dark_red2)
 
     mask = mask1 | mask2
+
+    cv2.imwrite(root_folder + "/OutputPhotos/Mask_Photo.jpg", mask)
 
     cropped_img_left = mask[399:600, 306:942]
     cropped_img_right = mask[354:529, 1146:1650]
