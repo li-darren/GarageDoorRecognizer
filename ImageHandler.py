@@ -2,6 +2,7 @@ import cv2 as cv2
 import numpy as np
 from picamera import PiCamera
 from time import sleep
+
 def check_garage_doors_open (root_folder):
 
     
@@ -10,8 +11,10 @@ def check_garage_doors_open (root_folder):
     camera = PiCamera()
     camera.start_preview()
     sleep(100)
-    #camera.capture(root_folder + "/Output Photos/Original_Photo.jpg")
+    camera.capture(root_folder + "/Output Photos/Original_Photo.jpg")
     
+    img = cv2.imread(root_folder + "/Output Photos/Original_Photo.jpg")
+
     left_pixel_threshold = 100000
     right_pixel_threshold = 150000
     
@@ -30,12 +33,14 @@ def check_garage_doors_open (root_folder):
     cropped_img_left = mask[753:1134, 975:2136]
     cropped_img_right = mask[967:1186, 2643:3729]
 
+    print("left nonzero: " + str(cv2.countNonZero(cropped_img_left)))
+    print("right nonzero: " + str(cv2.countNonZero(cropped_img_right)))
+
+
     if (cv2.countNonZero(cropped_img_left) < left_pixel_threshold):
         left_open = True
     else:
         left_open = False
-
-    print(cv2.countNonZero(cropped_img_right))
 
     if (cv2.countNonZero(cropped_img_right) < right_pixel_threshold):
         right_open = True
