@@ -17,3 +17,4 @@ sleep(5)
 for i in range(0,8):
     camera.iso=(i*100)
     camera.capture((root_folder + "/TestImages/Run%s/Original_Photo_%s.jpg") %(len(num_folders) + 1,i*100))
+    sleep(5)
