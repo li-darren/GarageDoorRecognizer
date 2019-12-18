@@ -19,4 +19,4 @@ exposure_modes = ['off','auto','night','nightpreview','backlight','spotlight','s
 for exposure_mode in exposure_modes:
     camera.exposure_mode=exposure_mode
     sleep(5)
-    camera.capture((root_folder + "/TestImages/Run%s/Original_Photo_%s.jpg") %(num_folder_items + 1,i*100))
+    camera.capture((root_folder + "/TestImages/Run%s/Original_Photo_%s.jpg") %(num_folder_items + 1,exposure_mode))
