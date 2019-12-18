@@ -16,6 +16,6 @@ camera.start_preview()
 sleep(5)
 
 for i in range(0,11):
-    camera.contrast=(i*10)
+    camera.contrast=-(i*10)
     sleep(5)
     camera.capture((root_folder + "/TestImages/Run%s/Original_Photo_%s.jpg") %(num_folder_items + 1,i*10))
