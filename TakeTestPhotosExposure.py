@@ -11,6 +11,7 @@ folder = os.listdir(root_folder + "/TestImages")
 num_folder_items = len(folder)
 os.mkdir((root_folder + "/TestImages/Run%s") % str(num_folder_items + 1))
 camera = PiCamera()
+camera.resolution(1920, 1080)
 camera.start_preview()
 sleep(5)
 

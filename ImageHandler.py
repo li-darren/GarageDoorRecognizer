@@ -15,7 +15,7 @@ def check_garage_doors_open (root_folder):
     # camera.close()    
     # img = cv2.imread(root_folder + "/OutputPhotos/Original_Photo.jpg")
 
-    img = cv2.imread(root_folder + "/Original_Photo_Open.jpg")
+    img = cv2.imread(root_folder + "/Original_Photo_0.jpg")
 
     left_pixel_threshold = 100000
     right_pixel_threshold = 150000
@@ -77,3 +77,5 @@ def check_garage_doors_open (root_folder):
         return "left"
     else:
         return None
+
+check_garage_doors_open ("F:/Windows 10 User Files/Windows 10 User Files - Darren/OneDrive - University of Waterloo/_Side Projects/GarageDoorRecognizer")

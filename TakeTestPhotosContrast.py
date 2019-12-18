@@ -15,7 +15,7 @@ camera.resolution(1920, 1080)
 camera.start_preview()
 sleep(5)
 
-for i in range(0,9):
-    camera.iso=(i*100)
+for i in range(0,11):
+    camera.contrast=(i*10)
     sleep(5)
-    camera.capture((root_folder + "/TestImages/Run%s/Original_Photo_%s.jpg") %(num_folder_items + 1,i*100))
+    camera.capture((root_folder + "/TestImages/Run%s-Contrast/Original_Photo_%s.jpg") %(num_folder_items + 1,i*100))
