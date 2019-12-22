@@ -78,4 +78,4 @@ def check_garage_doors_open (root_folder):
     else:
         return None
 
-check_garage_doors_open ("F:/Windows 10 User Files/Windows 10 User Files - Darren/OneDrive - University of Waterloo/_Side Projects/GarageDoorRecognizer")
+check_garage_doors_open ("/home/pi/Desktop/GarageDoorRecognizer")
