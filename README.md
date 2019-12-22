@@ -3,6 +3,15 @@
 
 Utilize OpenCV to determine when my Garage Doors are open and send an Email and SMS notification via SMTP and Twilio when they are open for longer than 5 minutes.
 
+## How it Works
+
+### With Two Doors Open
+![Both Doors Closed - Original]("/README Photos/BothDoorsClosed/Original_Photo.jpg")
+![Both Doors Closed - Original]("/README Photos/BothDoorsClosed/HSV_Photo.jpg")
+![Both Doors Closed - Original]("/README Photos/BothDoorsClosed/Mask_Photo.jpg")
+
+
+
 ### Prerequisites
 
 You will need to install all pip libraries and also some packages for your Raspberry Pi (I used Zero W)
