@@ -1,6 +1,6 @@
 import cv2 as cv2
 import numpy as np
-from picamera import PiCamera
+# from picamera import PiCamera
 from time import sleep
 
 def check_garage_doors_open (root_folder):
@@ -24,8 +24,8 @@ def check_garage_doors_open (root_folder):
 
     hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
-    cv2.rectangle(hsv_img, (306,399), (942,600), (255, 0, 0) , 5)
-    cv2.rectangle(hsv_img, (1146,354), (1650,529), (255, 0, 0) , 5)
+    cv2.rectangle(hsv_img, (238,273), (831,516), (255, 0, 0) , 5)
+    cv2.rectangle(hsv_img, (1065,276), (1564,445), (255, 0, 0) , 5)
 
     cv2.imwrite(root_folder + "/OutputPhotos/HSV_Photo.jpg", hsv_img)
 
@@ -36,8 +36,8 @@ def check_garage_doors_open (root_folder):
 
     cv2.imwrite(root_folder + "/OutputPhotos/Mask_Photo.jpg", mask)
 
-    cropped_img_left = mask[399:600, 306:942]
-    cropped_img_right = mask[354:529, 1146:1650]
+    cropped_img_left = mask[273:516, 238:831]
+    cropped_img_right = mask[276:445, 1065:1564]
 
     print("left nonzero: " + str(cv2.countNonZero(cropped_img_left)))
     print("right nonzero: " + str(cv2.countNonZero(cropped_img_right)))
