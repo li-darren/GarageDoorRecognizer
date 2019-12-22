@@ -24,6 +24,9 @@ def check_garage_doors_open (root_folder):
 
     hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
+    cv2.rectangle(hsv_img, (306,399), (942,600), (255, 0, 0) , 5)
+    cv2.rectangle(hsv_img, (1146,354), (1650,529), (255, 0, 0) , 5)
+
     cv2.imwrite(root_folder + "/OutputPhotos/HSV_Photo.jpg", hsv_img)
 
     mask1 = cv2.inRange(hsv_img, light_red1, dark_red1)
@@ -53,21 +56,17 @@ def check_garage_doors_open (root_folder):
 
     print ("left_open: " + str(left_open) + " right open: " + str(right_open))
 
-    cv2.rectangle(hsv_img, (306,399), (942,600), (255, 0, 0) , 5)
-    cv2.rectangle(hsv_img, (1146,354), (1650,529), (255, 0, 0) , 5)
-
-
-    cv2.namedWindow("imagewindow", cv2.WINDOW_NORMAL)
-    cv2.imshow('imagewindow', img)
-    cv2.namedWindow("hsvimagewindow", cv2.WINDOW_NORMAL)
-    cv2.imshow('hsvimagewindow', hsv_img)
-    cv2.namedWindow("croppedimgleft", cv2.WINDOW_NORMAL)
-    cv2.imshow('croppedimgleft', cropped_img_left)
-    cv2.namedWindow("croppedimgright", cv2.WINDOW_NORMAL)
-    cv2.imshow('croppedimgright', cropped_img_right)
-    cv2.namedWindow("maskedwindow", cv2.WINDOW_NORMAL)
-    cv2.imshow('maskedwindow', mask)
-    cv2.waitKey(0)
+    # cv2.namedWindow("imagewindow", cv2.WINDOW_NORMAL)
+    # cv2.imshow('imagewindow', img)
+    # cv2.namedWindow("hsvimagewindow", cv2.WINDOW_NORMAL)
+    # cv2.imshow('hsvimagewindow', hsv_img)
+    # cv2.namedWindow("croppedimgleft", cv2.WINDOW_NORMAL)
+    # cv2.imshow('croppedimgleft', cropped_img_left)
+    # cv2.namedWindow("croppedimgright", cv2.WINDOW_NORMAL)
+    # cv2.imshow('croppedimgright', cropped_img_right)
+    # cv2.namedWindow("maskedwindow", cv2.WINDOW_NORMAL)
+    # cv2.imshow('maskedwindow', mask)
+    # cv2.waitKey(0)
 
     if right_open and left_open:
             return "both"
