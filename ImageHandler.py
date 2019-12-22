@@ -5,17 +5,13 @@ from time import sleep
 
 def check_garage_doors_open (root_folder):
 
-    #cv2.namedWindow("originalimg", cv2.WINDOW_NORMAL)
-
-    # camera = PiCamera()
-    # camera.start_preview()
-    # sleep(5)
-    # camera.capture(root_folder + "/OutputPhotos/Original_Photo.jpg")
-    # camera.stop_preview()
-    # camera.close()    
-    # img = cv2.imread(root_folder + "/OutputPhotos/Original_Photo.jpg")
-
-    img = cv2.imread(root_folder + "/Original_Photo_0.jpg")
+    camera = PiCamera()
+    camera.start_preview()
+    sleep(5)
+    camera.capture(root_folder + "/OutputPhotos/Original_Photo.jpg")
+    camera.stop_preview()
+    camera.close()    
+    img = cv2.imread(root_folder + "/OutputPhotos/Original_Photo.jpg")
 
     left_pixel_threshold = 100000
     right_pixel_threshold = 150000
