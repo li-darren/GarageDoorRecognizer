@@ -7,8 +7,8 @@ Utilize OpenCV to determine when my Garage Doors are open and send an Email and 
 
 ### With Two Doors Open
 ![Both Doors Closed - Original]("README_Photos/BothDoorsClosed/Original_Photo.jpg")
-![Both Doors Closed - Original]("README_Photos/BothDoorsClosed/HSV_Photo.jpg")
-![Both Doors Closed - Original]("README_Photos/BothDoorsClosed/Mask_Photo.jpg")
+![Both Doors Closed - HSV]("README_Photos/BothDoorsClosed/HSV_Photo.jpg")
+![Both Doors Closed - Mask]("README_Photos/BothDoorsClosed/Mask_Photo.jpg")
 
 
 
