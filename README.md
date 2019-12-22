@@ -6,7 +6,7 @@ Utilize OpenCV to determine when my Garage Doors are open and send an Email and 
 ## How it Works
 
 ### With Two Doors Open
-![Both Doors Closed - Original]("/README Photos/BothDoorsClosed/Original_Photo.jpg")
+![Both Doors Closed - Original](/README Photos/BothDoorsClosed/Original_Photo.jpg)
 ![Both Doors Closed - Original]("/README Photos/BothDoorsClosed/HSV_Photo.jpg")
 ![Both Doors Closed - Original]("/README Photos/BothDoorsClosed/Mask_Photo.jpg")
 
