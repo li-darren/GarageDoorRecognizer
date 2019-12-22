@@ -1,6 +1,6 @@
 import cv2 as cv2
 import numpy as np
-# from picamera import PiCamera
+from picamera import PiCamera
 from time import sleep
 
 def check_garage_doors_open (root_folder):
