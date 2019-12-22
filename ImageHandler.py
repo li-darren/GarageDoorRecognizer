@@ -17,7 +17,7 @@ def check_garage_doors_open (root_folder):
     right_pixel_threshold = 150000
     
     light_red1 = np.array([0, 10, 20], dtype="uint8")
-    dark_red1 = np.array([20, 255, 255], dtype="uint8")
+    dark_red1 = np.array([70, 255, 255], dtype="uint8")
     light_red2 = np.array([160, 10, 20], dtype="uint8")
     dark_red2 = np.array([180, 255, 255], dtype="uint8")
 
@@ -78,3 +78,4 @@ def check_garage_doors_open (root_folder):
         return None
 
 check_garage_doors_open ("/home/pi/Desktop/GarageDoorRecognizer")
+# check_garage_doors_open("F:\Windows 10 User Files\Windows 10 User Files - Darren\OneDrive - University of Waterloo\_Side Projects\GarageDoorRecognizer")
