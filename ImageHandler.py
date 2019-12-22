@@ -5,7 +5,7 @@ from time import sleep
 
 def check_garage_doors_open (root_folder):
 
-    camera = PiCamera()
+    camera = PiCamera(resolution=(1920,1080))
     camera.start_preview()
     sleep(5)
     camera.capture(root_folder + "/OutputPhotos/Original_Photo.jpg")
