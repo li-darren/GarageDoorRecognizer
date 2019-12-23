@@ -5,21 +5,31 @@ Utilize OpenCV to determine when my Garage Doors are open and send an Email and 
 
 ## How it Works
 
-### With Two Doors Open
-![Both Doors Closed - Original](README_Photos/BothDoorsClosed/Original_Photo.jpg)
-![Both Doors Closed - HSV](README_Photos/BothDoorsClosed/HSV_Photo.jpg)
-![Both Doors Closed - Mask](README_Photos/BothDoorsClosed/Mask_Photo.jpg)
-
 ### With One Door Open
+
+This is the original photo that the Rasberry Pi has captured.
+
 ![One Door Open - Original](README_Photos/OneDoorOpen/Original_Photo.jpg)
+
+The image is then converted to HSV for image processing.
+
 ![One Door Open - HSV](README_Photos/OneDoorOpen/HSV_Photo.jpg)
+
+A color range is then applied to detect whether or not the garage door is open or not. You can then count the non zero pixels and determine whether or not the door is open, according to your threshold.
+
 ![One Door Open - Mask](README_Photos/OneDoorOpen/Mask_Photo.jpg)
+
 
 ### With Both Doors Open
 ![Both Doors Open - Original](README_Photos/BothDoorsOpen/Original_Photo.jpg)
 ![Both Doors Open - HSV](README_Photos/BothDoorsOpen/HSV_Photo.jpg)
 ![Both Doors Open - Mask](README_Photos/BothDoorsOpen/Mask_Photo.jpg)
 
+
+### With Two Doors Closed
+![Both Doors Closed - Original](README_Photos/BothDoorsClosed/Original_Photo.jpg)
+![Both Doors Closed - HSV](README_Photos/BothDoorsClosed/HSV_Photo.jpg)
+![Both Doors Closed - Mask](README_Photos/BothDoorsClosed/Mask_Photo.jpg)
 
 ### Prerequisites
 

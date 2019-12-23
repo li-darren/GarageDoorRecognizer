@@ -1,16 +1,21 @@
+WINDOWS_DEV = True
+
 import cv2 as cv2
 import numpy as np
-from picamera import PiCamera
+if not WINDOWS_DEV:
+    from picamera import PiCamera
 from time import sleep
 
 def check_garage_doors_open (root_folder):
 
-    camera = PiCamera(resolution=(1920,1080))
-    camera.start_preview()
-    sleep(5)
-    camera.capture(root_folder + "/OutputPhotos/Original_Photo.jpg")
-    camera.stop_preview()
-    camera.close()    
+    if not WINDOWS_DEV:
+        camera = PiCamera(resolution=(1920,1080))
+        camera.start_preview()
+        sleep(5)
+        camera.capture(root_folder + "/OutputPhotos/Original_Photo.jpg")
+        camera.stop_preview()
+        camera.close()
+
     img = cv2.imread(root_folder + "/OutputPhotos/Original_Photo.jpg")
 
     left_pixel_threshold = 100000
@@ -56,17 +61,18 @@ def check_garage_doors_open (root_folder):
 
     print ("left_open: " + str(left_open) + " right open: " + str(right_open))
 
-    # cv2.namedWindow("imagewindow", cv2.WINDOW_NORMAL)
-    # cv2.imshow('imagewindow', img)
-    # cv2.namedWindow("hsvimagewindow", cv2.WINDOW_NORMAL)
-    # cv2.imshow('hsvimagewindow', hsv_img)
-    # cv2.namedWindow("croppedimgleft", cv2.WINDOW_NORMAL)
-    # cv2.imshow('croppedimgleft', cropped_img_left)
-    # cv2.namedWindow("croppedimgright", cv2.WINDOW_NORMAL)
-    # cv2.imshow('croppedimgright', cropped_img_right)
-    # cv2.namedWindow("maskedwindow", cv2.WINDOW_NORMAL)
-    # cv2.imshow('maskedwindow', mask)
-    # cv2.waitKey(0)
+    if WINDOWS_DEV:
+        cv2.namedWindow("imagewindow", cv2.WINDOW_NORMAL)
+        cv2.imshow('imagewindow', img)
+        cv2.namedWindow("hsvimagewindow", cv2.WINDOW_NORMAL)
+        cv2.imshow('hsvimagewindow', hsv_img)
+        cv2.namedWindow("croppedimgleft", cv2.WINDOW_NORMAL)
+        cv2.imshow('croppedimgleft', cropped_img_left)
+        cv2.namedWindow("croppedimgright", cv2.WINDOW_NORMAL)
+        cv2.imshow('croppedimgright', cropped_img_right)
+        cv2.namedWindow("maskedwindow", cv2.WINDOW_NORMAL)
+        cv2.imshow('maskedwindow', mask)
+        cv2.waitKey(0)
 
     if right_open and left_open:
             return "both"
@@ -77,5 +83,5 @@ def check_garage_doors_open (root_folder):
     else:
         return None
 
-check_garage_doors_open ("/home/pi/Desktop/GarageDoorRecognizer")
-# check_garage_doors_open("F:\Windows 10 User Files\Windows 10 User Files - Darren\OneDrive - University of Waterloo\_Side Projects\GarageDoorRecognizer")
+if WINDOWS_DEV:
+    check_garage_doors_open("F:\Windows 10 User Files\Windows 10 User Files - Darren\OneDrive - University of Waterloo\_Side Projects\GarageDoorRecognizer")
