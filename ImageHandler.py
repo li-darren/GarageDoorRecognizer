@@ -1,5 +1,5 @@
 WINDOWS_DEV = False
-
+RASPBERRYPI_TEST = True
 import cv2 as cv2
 import numpy as np
 if not WINDOWS_DEV:
@@ -85,3 +85,5 @@ def check_garage_doors_open (root_folder):
 
 if WINDOWS_DEV:
     check_garage_doors_open("F:\Windows 10 User Files\Windows 10 User Files - Darren\OneDrive - University of Waterloo\_Side Projects\GarageDoorRecognizer")
+if RASPBERRYPI_TEST:
+    check_garage_doors_open("home/pi/Desktop/GarageDoorRecognizer")
