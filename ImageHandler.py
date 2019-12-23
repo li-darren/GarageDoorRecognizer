@@ -1,4 +1,4 @@
-WINDOWS_DEV = True
+WINDOWS_DEV = False
 
 import cv2 as cv2
 import numpy as np
