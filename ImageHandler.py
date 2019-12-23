@@ -1,5 +1,5 @@
-WINDOWS_DEV = True
-RASPBERRYPI_TEST = False
+WINDOWS_DEV = False
+RASPBERRYPI_TEST = True
 import cv2 as cv2
 import numpy as np
 if not WINDOWS_DEV:
@@ -21,9 +21,9 @@ def check_garage_doors_open (root_folder):
     left_pixel_threshold = 100000
     right_pixel_threshold = 150000
     
-    light_red1 = np.array([0, 10, 5], dtype="uint8")
+    light_red1 = np.array([0, 5, 5], dtype="uint8")
     dark_red1 = np.array([70, 255, 255], dtype="uint8")
-    light_red2 = np.array([160, 10, 5], dtype="uint8")
+    light_red2 = np.array([160, 5, 5], dtype="uint8")
     dark_red2 = np.array([180, 255, 255], dtype="uint8")
 
 
