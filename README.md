@@ -20,16 +20,17 @@ A color range is then applied to detect whether or not the garage door is open o
 ![One Door Open - Mask](README_Photos/OneDoorOpen/Mask_Photo.jpg)
 
 
+### With Two Doors Closed
+![Both Doors Closed - Original](README_Photos/BothDoorsClosed/Original_Photo.jpg)
+![Both Doors Closed - HSV](README_Photos/BothDoorsClosed/HSV_Photo.jpg)
+![Both Doors Closed - Mask](README_Photos/BothDoorsClosed/Mask_Photo.jpg)
+
+
 ### With Both Doors Open
 ![Both Doors Open - Original](README_Photos/BothDoorsOpen/Original_Photo.jpg)
 ![Both Doors Open - HSV](README_Photos/BothDoorsOpen/HSV_Photo.jpg)
 ![Both Doors Open - Mask](README_Photos/BothDoorsOpen/Mask_Photo.jpg)
 
-
-### With Two Doors Closed
-![Both Doors Closed - Original](README_Photos/BothDoorsClosed/Original_Photo.jpg)
-![Both Doors Closed - HSV](README_Photos/BothDoorsClosed/HSV_Photo.jpg)
-![Both Doors Closed - Mask](README_Photos/BothDoorsClosed/Mask_Photo.jpg)
 
 ### Prerequisites
 
